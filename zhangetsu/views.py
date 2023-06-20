@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.shortcuts import redirect
 from django.contrib.auth import logout
+from .forms import registerForm
 
 
 def index(request):
@@ -53,4 +54,8 @@ def logout_view(request):
 
 
 def register(request):
-     return render(request, 'user/register.html')
+     form = registerForm()
+     return render(request, 'users/register.html',{
+          'form':form
+          
+     })
