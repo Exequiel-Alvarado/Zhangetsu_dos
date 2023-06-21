@@ -44,10 +44,17 @@ class registerForm(forms.Form):
             raise forms.ValidationError('El email ya se encuentra en uso')
         
         return email 
-
+        #para validar la contraseña
     def clean(self):
         cleaned_data = super().clean()
 
         if cleaned_data.get('password2') != cleaned_data.get('password'):
             self.add_error('password2', 'El password no coincide')
 
+
+    def save(self):
+        return User.objects.create_user(
+                self.cleaned_data.get('username'),
+                self.cleaned_data.get('email'),
+                self.cleaned_data.get('password'),
+        )
