@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 
 from django.contrib import messages
@@ -6,6 +7,8 @@ from django.contrib.auth import login
 from django.shortcuts import redirect
 from django.contrib.auth import logout
 from .forms import registerForm
+
+from django.contrib.auth.models import User
 
 
 def index(request):
@@ -62,12 +65,16 @@ def register(request):
         password = form.cleaned_data.get('password')
 
 
-        print (username)
-        print (email)
-        print (password)
+        user = User.objects.create_user(username, email, password)
+        if user:
+             login(request, user )
+             messages.success(request, 'Usuario creado exitosamente')
+             return redirect('index')
         
 
     return render(request, 'users/register.html', {
           'form':form
           
     })
+
+
