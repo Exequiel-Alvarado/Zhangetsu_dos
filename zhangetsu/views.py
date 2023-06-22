@@ -28,6 +28,9 @@ def index(request):
     })
 
 def login_view(request):
+        if request.user.is_authenticated:
+         
+         return redirect('index')
         
      #para auntentificar un login de usuario
         if request.method == 'POST':
@@ -50,13 +53,17 @@ def login_view(request):
 
 
 def logout_view(request):
+     
      logout(request)
      messages.success(request, 'Sesion cerada exitosamente')
      return redirect ('login')
 
 
-
+#se agrega condiciones
 def register(request):
+    if request.user.is_authenticated:
+         return redirect('index')
+
     form = registerForm(request.POST or None)
 
     if request.method == 'POST' and form.is_valid():
