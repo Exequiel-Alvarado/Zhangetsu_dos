@@ -1,6 +1,8 @@
 
 from django.shortcuts import render
 
+from django.db.models import Q
+
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
@@ -31,8 +33,9 @@ class ProductSearchListView(ListView):
     template_name = 'products/search.html'
     #para hace las busquedas con las consultas por nombre
     def get_queryset(self):
+         filter = Q(title__icontains=self.query())  | Q(category__title__icontains=self.query())
          #select * from products where title like %valor%
-         return Product.objects.filter(title__icontains=self.query())
+         return Product.objects.filter(filter)
 
     def query(selft):
         return selft.request.GET.get('q')  
