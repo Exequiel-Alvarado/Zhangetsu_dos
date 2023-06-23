@@ -2,8 +2,10 @@ from typing import Any
 from django.shortcuts import render
 
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
 from .models import Product
+
 
 # Create your views here.
 class ProductListView(ListView):
@@ -19,5 +21,10 @@ class ProductListView(ListView):
 
         return context
 
-class ProductDetailsView():
-    pass     
+class ProductDetailsView(DetailView): # id -> llave primaria
+
+    model = Product
+    template_name ='Products/product.html'    
+
+   
+
