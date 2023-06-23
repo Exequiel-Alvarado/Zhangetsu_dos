@@ -13,13 +13,15 @@
                     
                             {# este es un comentario #}
                         
+
+                            <span class="text-success">${{ product.price }} </span> 
+                            <!-- validacion de stock
                                 {% if product.stock %}
                                 <span class="text-success">Disponible </span>  
                                 {%else%}
                                 <span class="text-danger">No Disponible </span>   
                                 {% endif %}
-
-                            
+                            -->    
                         </li>
                     {% endfor %}
                 </ul>

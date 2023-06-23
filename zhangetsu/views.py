@@ -7,49 +7,44 @@ from django.contrib.auth import login
 from django.shortcuts import redirect
 from django.contrib.auth import logout
 from .forms import registerForm
+from products.models import Product
 
 from django.contrib.auth.models import User
 
 
 def index(request):
 
+    products = Product.objects.all() .order_by('-id')
+
 
     return render(request,'index.html', {
         #context
         'message': 'Listado de productos',
         'title': 'Productos',
-        'products':[
-            {'title':'Escala 1/144','price':28000, 'stock': True},#productos
-            {'title':'Escala 1/100','price':39000, 'stock': True},
-            {'title':'Escala 1/64','price':76000, 'stock': False},
-            {'title':'Escala 1/20','price':150000, 'stock': True},
-        ]
+        'products': products
          
     })
 
 def login_view(request):
-        if request.user.is_authenticated:
-         
-         return redirect('index')
+    if request.user.is_authenticated:
+        return redirect('index')
         
      #para auntentificar un login de usuario
-        if request.method == 'POST':
-            username = request.POST.get('username') #diccionario
-            password = request.POST.get('password') #none
+    if request.method == 'POST':
+        username = request.POST.get('username') #diccionario
+        password = request.POST.get('password') #none
 
-            user = authenticate(username=username, password=password) #none
-            if  user:
-                 login(request, user)
-                # print("Usuario auntetificado")
-                 messages.success(request, 'Bienvenido {}'.format(user.username))
-                 return redirect('index')
+        user = authenticate(username=username, password=password) #none
+        if  user:
+            login(request, user)
+            # print("Usuario auntetificado")
+            messages.success(request, 'Bienvenido {}'.format(user.username))
+            return redirect('index')
 
-            else:
-                 #print("Usuario NO auntetificado")     
-                 messages.error(request, 'Usuario o Contraseña no validas')
-        return render(request , 'users/login.html', {
-
-    })
+        else:
+            #print("Usuario NO auntetificado")     
+            messages.error(request, 'Usuario o Contraseña no validas')
+    return render(request , 'users/login.html', { })
 
 
 def logout_view(request):
@@ -81,7 +76,4 @@ def register(request):
              return redirect('index')
         
 
-    return render(request, 'users/register.html', {
-          'form':form
-          
-    })
+    return render(request, 'users/register.html', { 'form':form })

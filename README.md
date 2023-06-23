@@ -11,6 +11,8 @@ algunos items ocupados:
 -Django
 -base de datos
 
+
+
 -font awesome
 
 
