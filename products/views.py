@@ -1,4 +1,4 @@
-from typing import Any
+
 from django.shortcuts import render
 
 from django.views.generic.list import ListView
@@ -27,4 +27,19 @@ class ProductDetailsView(DetailView): # id -> llave primaria
     template_name ='Products/product.html'    
 
    
+class ProductSearchListView(ListView):
+    template_name = 'products/search.html'
+    #para hace las busquedas con las consultas por nombre
+    def get_queryset(self):
+         #select * from products where title like %valor%
+         return Product.objects.filter(title__icontains=self.query())
 
+    def query(selft):
+        return selft.request.GET.get('q')  
+    
+    def get_context_data(self,**Kwargs):
+        context = super().get_context_data(**Kwargs)
+        context['query'] = self.query()
+        context['count'] = context['product_list'].count()
+
+        return context
