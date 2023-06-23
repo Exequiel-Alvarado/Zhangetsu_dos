@@ -25,7 +25,7 @@ def set_slug(sender, instance, *args, **kwargs): #callback
     if instance.title and not instance.slug:
         slug = slugify(instance.title)
 
-        while Product.object.filter(slug=slug).exicts():
+        while Product.objects.filter(slug=slug).exists():
             slug = slugify(
                 '{}-{}'.format(instance.title, str(uuid.uuid4())[:8] )
             )
