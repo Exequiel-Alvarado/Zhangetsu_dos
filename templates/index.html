@@ -2,35 +2,18 @@
 
 
 {% block content %}
- 
-            <div class="col">
-                <h1>{{ message }}</h1>
+<div class="col">
+<h4 class="text-center">{{ message }}</h4>
 
-                <ul class="list-group">
-                    {% for product in products %}
-                        <li class="list-group-item">
-                            {{ product.title }}
-                    
-                            {# este es un comentario #}
-                        
-
-                            <span class="text-success">${{ product.price }} </span> 
-                            <!-- validacion de stock
-                                {% if product.stock %}
-                                <span class="text-success">Disponible </span>  
-                                {%else%}
-                                <span class="text-danger">No Disponible </span>   
-                                {% endif %}
-                            -->    
-                        </li>
-                    {% endfor %}
-                </ul>
-                
+    <div class="row">
+        {% for object in product_list %}
+            <div class="col-3 mt-5">
+                {% include 'products/snippets/product.html'  with product=object %}
+            </div>   
+        {% endfor %}
+    </div>
     
-
-            </div>
-   
-
+</div>
 {% endblock %}
 
 

@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import Product
 
 class ProductAdmin(admin.ModelAdmin):
-    fields = ('title', 'description', 'price')
+    fields = ('title', 'description', 'price', 'image')
     list_display = ('__str__', 'slug', 'created_at')
 
 #se otorgar privelegios a admin para hacer un crud de productos
