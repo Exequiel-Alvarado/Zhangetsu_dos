@@ -22,7 +22,7 @@ def index(request):
         #context
         'message': 'Listado de productos',
         'title': 'Productos',
-        'products': products
+        'products': products,
          
     })
 
