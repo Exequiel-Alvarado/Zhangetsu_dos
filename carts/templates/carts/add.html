@@ -24,6 +24,9 @@
             {{ product.price | price_format}}
 
         </div>
+        <div class="mt-2">
+            <a href="{% url 'carts:cart' %}" class="btn btn-info">Ver Carrito</a>
+        </div>
 
     </div>
 
