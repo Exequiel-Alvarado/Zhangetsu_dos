@@ -21,6 +21,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'users',
+    'carts',
     'products',
     'categories',
     'django.contrib.admin',
@@ -43,6 +44,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'zhangetsu.urls'
+
+AUTH_USER_MODEL = 'users.User'
 
 TEMPLATES = [
     {
