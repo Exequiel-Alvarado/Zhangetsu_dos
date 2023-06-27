@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `carts_cart` (
 
 -- Dumping data for table django.carts_cart: ~0 rows (approximately)
 INSERT INTO `carts_cart` (`id`, `cart_id`, `subtotal`, `total`, `created_at`, `user_id`) VALUES
-	(1, '6f596390-43ef-44eb-aea4-71067365f1f0', 0, 0, '2023-06-27 01:22:39.122769', 1);
+	(1, '6f596390-43ef-44eb-aea4-71067365f1f0', 154000, 167860, '2023-06-27 01:22:39.122769', 1);
 
 -- Dumping structure for table django.carts_cartproducts
 CREATE TABLE IF NOT EXISTS `carts_cartproducts` (
@@ -136,9 +136,13 @@ CREATE TABLE IF NOT EXISTS `carts_cartproducts` (
   CONSTRAINT `carts_cartproducts_cart_id_ba4f1f11_fk_carts_cart_id` FOREIGN KEY (`cart_id`) REFERENCES `carts_cart` (`id`),
   CONSTRAINT `carts_cartproducts_product_id_20faa16a_fk_products_product_id` FOREIGN KEY (`product_id`) REFERENCES `products_product` (`id`),
   CONSTRAINT `carts_cartproducts_chk_1` CHECK ((`quantity` >= 0))
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Dumping data for table django.carts_cartproducts: ~0 rows (approximately)
+INSERT INTO `carts_cartproducts` (`id`, `quantity`, `created_at`, `cart_id`, `product_id`) VALUES
+	(6, 1, '2023-06-27 02:47:16.955003', 1, 6),
+	(7, 1, '2023-06-27 02:56:18.102033', 1, 5),
+	(8, 1, '2023-06-27 03:13:11.227891', 1, 7);
 
 -- Dumping structure for table django.categories_category
 CREATE TABLE IF NOT EXISTS `categories_category` (
@@ -266,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `django_session` (
 
 -- Dumping data for table django.django_session: ~1 rows (approximately)
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-	('u6y74oshx5z8tkutryjvn45wj31etovc', '.eJxVjDkOwjAQRe_imlhjxyslPWeIZuwZwqJEylIh7g4RadL-995_q4LT0t2rOqsgPoc2Q-NalsY5pgYZXRMNhNgGL0ZAnVSH69J368zTPzPHjbA8edhAfeBwG3UZh2W6k94UvdNZX8fKr8vuHg56nPtfzSEUsgXI1WTQMxokT8DZRJIoOSdxxaIkyMUYF9FaTgKRIKRoBdXnC_xXRT0:1qDxWE:gc8Q-h0w8-sM8FN_Ketimt6Kdl9lnQOEa5hAT0_DeK4', '2023-07-11 01:29:22.278856');
+	('u6y74oshx5z8tkutryjvn45wj31etovc', '.eJxVjDkOwjAQRe_imlhjxyslPWeIZuwZwqJEylIh7g4RadL-995_q4LT0t2rOqsgPoc2Q-NalsY5pgYZXRMNhNgGL0ZAnVSH69J368zTPzPHjbA8edhAfeBwG3UZh2W6k94UvdNZX8fKr8vuHg56nPtfzSEUsgXI1WTQMxokT8DZRJIoOSdxxaIkyMUYF9FaTgKRIKRoBdXnC_xXRT0:1qDz8i:EIQXPQGUzhCewmIO_eaI6Z4mfD1i_d139FmzSc-ytCk', '2023-07-11 03:13:12.456272');
 
 -- Dumping structure for table django.products_product
 CREATE TABLE IF NOT EXISTS `products_product` (
