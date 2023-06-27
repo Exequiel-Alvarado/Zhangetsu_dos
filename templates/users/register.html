@@ -1,23 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2>Registro</h2>
+{% extends 'base.html' %}
+{% block content %}
+    <div class="col">
+    <h2>Registro</h2>
 
 
-                
-                <!--formulario-->
-
-
-            </div>
+    
+    <!--formulario-->
+    <form method="POST">
+        {% csrf_token %}
+        <!--
+        <div class="from-group">
+            {{ form.username.label_tag }}
+            {{ form.username }}
         </div>
+        <div class="from-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+        </div>
+        <div class="from-group">
+            {{ form.password.label_tag }}
+            {{ form.password }}
+        </div>
+
+        -->
+        {% for field in form %}
+            <div class="form-group">
+
+                {{ field.label_tag }}
+                {{ field }}
+
+
+                {% if field.errors %}
+                    {{ field.errors}}
+                {% endif  %}
+            </div>
+
+        {% endfor %}
+        <br>
+        <button type="submit" class="btn btn-primary">Resgistrar</button>
+        
+    </form>
+    
     </div>
-</body>
-</html>
+{% endblock %}
+
