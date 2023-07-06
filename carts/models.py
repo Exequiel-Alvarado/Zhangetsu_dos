@@ -38,7 +38,7 @@ class Cart(models.Model):
 class CartProducts(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
+    quantity = models.IntegerField(default=1)
 
     # Resto de los campos y métodos de la clase CartProducts
 
