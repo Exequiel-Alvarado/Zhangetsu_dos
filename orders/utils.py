@@ -8,6 +8,6 @@ def get_or_create_order(cart, request):
         order = Order.objects.create(cart=cart, user=request.user)
 
     if order:
-        request.session['oder_id'] = order.id
+        request.session['oder_id'] = order.order_id
 
     return order    

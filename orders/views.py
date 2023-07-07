@@ -11,6 +11,8 @@ def order(request):
     
 
 
-    return render(request,'orders/order.html',{
+    return render(request,'orders/order.html', {
+        'cart': cart,
+        'order' : order,
 
     })
