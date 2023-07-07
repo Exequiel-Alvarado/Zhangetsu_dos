@@ -19,7 +19,7 @@ class Cart(models.Model):
     total = models.DecimalField(default=0, max_digits=8, decimal_places=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    FEE = 0.09 #comision de 0.9%
+    FEE = 0.05 #comision de 0.5%
 
     def __str__(self):
         return self.cart_id
@@ -27,6 +27,10 @@ class Cart(models.Model):
     def update_totals(self):
         self.update_subtotal()
         self.update_total()
+
+        order = self.order_set.first()
+        if order:
+            order.update_total()
 
     def update_subtotal(self):
         self.subtotal = sum([
@@ -37,7 +41,9 @@ class Cart(models.Model):
 
     def update_total(self):
         self.total = self.subtotal + (self.subtotal * decimal.Decimal(Cart.FEE))  
-        self.save() 
+        self.save()
+
+
     def products_related(self):
         return self.cartproducts_set.select_related('product')  
 
