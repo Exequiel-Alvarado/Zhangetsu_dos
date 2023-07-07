@@ -1,8 +1,11 @@
 from django.shortcuts import redirect,render
 from django.shortcuts import get_object_or_404
 
+
+from .models import CartProducts
 from products.models import Product
 from .models import Cart
+from .models import CartProducts
 from .utils import get_or_create_cart
 
 #ss
@@ -29,15 +32,31 @@ def cart(request):
 def add(request):
     cart = get_or_create_cart(request)
     product = Product.objects.get(pk=request.POST.get('product_id'))
-    quantity = request.POST.get('quantaty',1)
+    quantity = int(request.POST.get('quantity'))
+    if quantity is None:
+        quantity = 1
 
-    cart.products.add(product, through_defaults={
-        'quantity': quantity
-    } )
+   # cart.products.add(product, through_defaults={
+    #    'quantity': quantity
+   # })
+    cart_product = CartProducts.objects.create_or_update_quantity(cart=cart,
+                                                                product=product,
+                                                                quantity=quantity)
 
-    return render (request, 'carts/add.html',{
+
+  
+
+    #---#
+    
+
+    return render (request, 'carts/add.html', 
+        {
+        'quanity': quantity,
+        'cart_product': cart_product,
         'product': product
-    })
+
+        })
+
 def remove(request):
     
     cart = get_or_create_cart(request)
