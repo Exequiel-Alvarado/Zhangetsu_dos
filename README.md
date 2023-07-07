@@ -1,5 +1,5 @@
 # Zhangetsu_dos E-commerce product page
-![diseño previo de E-commerce ](./media/products/MG_Lightning_Astray_Gundam_x1000_3.jpg)
+![diseño previo de E-commerce ](./media/examen/login1.png)
 
 ## Bienvenidos 👋
 
@@ -7,7 +7,7 @@ le presento mi tienda Zhangetsu
 
 Diseñada por Exequiel Alvarado.
 
-**lo que ocupe --> HTML, CSS, Boostrap, Python, Mysql, Django, and JavaScript.**
+**lo que ocupe --> HTML, CSS, Boostrap, Python, Mysql, Django, and JavaScript,orm laragon.mysql**
 
 ## paquetes Instalado
 asgiref==3.7.2
@@ -65,7 +65,58 @@ yt-dlp==2023.3.4
 -font awesome
 
 
-![diseño de mapa de Entidades ](./media/products/MG_Lightning_Astray_Gundam_x1000_3.jpg)
+
+
+
+
+![diseño de la principal ](./media/examen/productos.png)
+
+
+
+
+
+![diseño de registro](./media/examen/registro.png)
+
+![diseño de login](./media/examen/validacion.png)
+
+![diseño de logeando](./media/examen/entrando.png)
+
+![diseño de selecionar](./media/examen/cantidads.png)
+
+![diseño de cantidades](./media/examen/cantidad.png)
+
+![diseño de carrito vacio](./media/examen/vacio.png)
+
+![diseño de producto pre orden](./media/examen/suma2.png)
+
+![diseño pago](./media/examen/pagar.png)
+
+![diseño productos](./media/examen/productos.png)
+
+![orm laragon](./media/examen/laragon.png)
+
+![orm conexion](./media/examen/orm.png)
+
+![models](./media/examen/models.png)
+
+![navbar](./media/examen/navbar.png)
+
+![views](./media/examen/view.png)
+
+![template base](./media/examen/base.png)
+
+![Snippers](./media/examen/sniper.png)
+
+![adm users](./media/examen/usuarios.png)
+
+![adm products](./media/examen/productosadm.png)
+
+![panel adm django](./media/examen/admin.png)
+
+
+
+
+
 
 
 
