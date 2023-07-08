@@ -8,8 +8,15 @@ le presento mi tienda Zhangetsu
 Diseñada por Exequiel Alvarado.
 
 -font awesome
-
-**lo que ocupe --> HTML, CSS, Boostrap, Python, Mysql, Django, and JavaScript,orm laragon.mysql**
+lo que ocupe --> 
+  * HTML,
+  * CSS, 
+  * Boostrap, 
+  * Python,
+  * Mysql, 
+  * Django,
+  * JavaScript,
+  * orm laragon.mysql 
 
 ## paquetes Instalado
 asgiref==3.7.2
